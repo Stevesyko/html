@@ -5,6 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+<script>
+// Select the form element and add an event listener for form submission
+const contactForm = document.querySelector('#contact form');
+contactForm.addEventListener('submit', submitForm);
+
+// Function to handle form submission
+function submitForm(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  // Select the form fields
+  const nameField = document.querySelector('#contact input[name="name"]');
+  const emailField = document.querySelector('#contact input[name="email"]');
+  const messageField = document.querySelector('#contact textarea[name="message"]');
+
+  // Get the values of the form fields
+  const nameValue = nameField.value.trim();
+  const emailValue = emailField.value.trim();
+  const messageValue = messageField.value.trim();
+
+  // Validate the form fields
+  if (nameValue === '' || emailValue === '' || messageValue === '') {
+    alert('Please fill in all fields.');
+    return;
+  }
+
+  if (!isValidEmail(emailValue)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  // If form fields are valid, create an object with the form data
+  const formData = {
+    name: nameValue,
+    email: emailValue,
+    message: messageValue
+  };
+
+  // Send the form data to the server using AJAX or fetch API
+  // For example, using fetch API:
+  fetch('http://example.com/api/contact', {
+    method: 'POST',
+    body: JSON.stringify(formData),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('Thank you for contacting us!');
+      nameField.value = '';
+      emailField.value = '';
+      messageField.value = '';
+    } else {
+      alert('An error occurred. Please try again later.');
+    }
+  })
+  .catch(error => {
+    alert('An error occurred. Please try again later.');
+    console.error(error);
+  });
+}
+
+// Function to validate email address format
+function isValidEmail(email) {
+  // Regular expression for email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+</script>
     <style>
         #contact-us {
   background-color: #852929;
