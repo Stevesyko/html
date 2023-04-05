@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        #contact-us {
+  background-color: #852929;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+#contact-us h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#contact-us p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.contact-info {
+  margin-bottom: 30px;
+}
+
+.contact-info p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.contact-info strong {
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+label {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  padding: 10px;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #008cba;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0077a3;
+}
+    </style>
+</head>
+<body>
+    <section id="contact-us">
+        <h2>Contact Us</h2>
+        <p>Feel free to contact us for any inquiries or questions.</p>
+        
+        <div class="contact-info">
+          <p><strong>Telephone:</strong> +254-725761362</p>
+          <p><strong>Email:</strong> mauriceoluoch@zoho.com</p>
+          <p><strong>Location:</strong>donholm maurice Juakali Industry, Nairobi, Kenya</p>
+        </div>
+      
+        <form action="submit-form.php" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+</body>
+</html>
